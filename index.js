@@ -196,6 +196,7 @@ function main()
   if (options.generateAll) {
       var paths = fs.readdirSync('templates');
       paths.forEach(function(path){
+          if (path.indexOf('.docx')==-1) return;
           console.log(path);
           var result = generate('templates/'+path);
           convertToPdf(result);
