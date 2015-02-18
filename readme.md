@@ -9,6 +9,8 @@ It can:
  - compute the taxes you need to pay
  - compute your profit (turnover-taxes)
 
+
+
     USAGE: ct [OPTION1] [OPTION2]... arg1 arg2...
     The following options are supported:
       -h, --hours                   Total number of billed hours
