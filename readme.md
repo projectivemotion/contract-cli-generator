@@ -1,6 +1,9 @@
+# Objective
+
+
 clients-cli is a cli to manage your freelance business.
 
-It can:
+# Features
 
  - generate a proposal/invoice from your clients.yml and a word template
  - generate the proposal/invoice in pdf (requires libreoffice)
@@ -9,7 +12,7 @@ It can:
  - compute the taxes you need to pay
  - compute your profit (turnover-taxes)
 
-
+# Usage
 
     USAGE: ct [OPTION1] [OPTION2]... arg1 arg2...
     The following options are supported:
