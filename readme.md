@@ -12,6 +12,19 @@ clients-cli is a cli to manage your freelance business.
  - compute the taxes you need to pay
  - compute your profit (turnover-taxes)
 
+# Clients.yml
+
+
+In your clients.yml, you should put data about your clients
+
+    clients:
+        MICROSOFT:
+            legal_representor: Bill Gates
+            address_street: 02 Blabla Sreet
+            address_town: 49670 New York
+            address_country: United States
+            vat: 4546654564564
+
 # Usage
 
     USAGE: ct [OPTION1] [OPTION2]... arg1 arg2...
