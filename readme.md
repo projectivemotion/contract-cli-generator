@@ -18,12 +18,21 @@ clients-cli is a cli to manage your freelance business.
 In your clients.yml, you should put data about your clients
 
     clients:
-        MICROSOFT:
-            legal_representor: Bill Gates
+        MICROSTRONG:
+            legal_representor: Bill Doors
             address_street: 02 Blabla Sreet
             address_town: 49670 New York
             address_country: United States
             vat: 4546654564564
+
+and about your projects:
+
+
+    projects:
+        -
+            client: MICROSTRONG
+            amount: 2000 €
+            worked_time: 5days
 
 # Usage
 
