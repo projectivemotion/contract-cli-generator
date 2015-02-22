@@ -30,9 +30,16 @@ and about your projects:
 
     projects:
         -
-            client: MICROSTRONG
-            amount: 2000 €
-            worked_time: 5days
+            client: MICROSTRONG # This is the key to a client, so you don’t have to repeat the client info
+            amount: 2000 € # This is used to compute your turnover
+            worked_time: 5days # This is used to compute how much you’ve worked
+
+They are also some general config keys:
+
+
+    currency: € # Your preferred currency
+    taxes: 43% # The taxes percentage used for taxes estimation
+
 
 # Usage
 
