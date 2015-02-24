@@ -71,7 +71,7 @@ convertToPdf=function(result){
     result.extension="pdf";
     var pdfDoc=getDocPath(result);
 
-    var command=["--headless","--convert-to","pdf","--outdir",__dirname+"/docs/",baseDoc];
+    var command=["--headless","--convert-to","pdf","--outdir",process.cwd()+"/docs/",baseDoc];
     result=spawnSync("libreoffice4.2",command);
 
     if (result.status !== 0) {
@@ -92,7 +92,7 @@ generate=function(templatePath){
       };
       //load the docx file as a binary
       content=fs
-          .readFileSync(__dirname+'/'+templatePath,"binary");
+          .readFileSync(templatePath,"binary");
 
       template=new Docx(content);
       template.setOptions({parser:angularParser,delimiters:{start:"[[",end:"]]"}});
@@ -141,7 +141,7 @@ generate=function(templatePath){
 };
 
 function getDocPath(options) {
-    return __dirname+"/docs/"+options.docName+"_"+options.id+"."+options.extension;
+    return process.cwd()+"/docs/"+options.docName+"_"+options.id+"."+options.extension;
 }
 
 // Get document, or throw exception on error
@@ -166,36 +166,41 @@ function main()
   if (options.hourly) {
     base=1/getTotalTimeWorked();
     unitSuffix+=" / hour";
+    return outputNumber(base,unit,unitSuffix)
   }
 
   if (options.hours) {
     base*=getTotalTimeWorked();
     unit='hours';
+    return outputNumber(base,unit,unitSuffix)
   }
 
   if (options.turnover) {
     base*=getTurnOver();
     unit=preferredCurrency;
+    return outputNumber(base,unit,unitSuffix)
   }
 
   if (options.taxes) {
     base*=getTaxes();
     unit=preferredCurrency;
+    return outputNumber(base,unit,unitSuffix)
   }
 
   if (options.profit) {
     base*=getProfit();
     unit=preferredCurrency;
+    return outputNumber(base,unit,unitSuffix)
   }
 
   if (options.generate) {
       var result = generate(options.generate);
-      convertToPdf(result);
+      return convertToPdf(result);
   }
 
   if (options.generateAll) {
       var paths = fs.readdirSync('templates');
-      paths.forEach(function(path){
+      return paths.forEach(function(path){
           if (path.indexOf('.docx')==-1) return;
           console.log(path);
           var result = generate('templates/'+path);
@@ -203,6 +208,11 @@ function main()
       });
   }
 
+  return options.printHelp();
+
+}
+
+function outputNumber(base,unit,unitSuffix) {
    base=base.toFixed(2);
    console.log(base+' '+unit+unitSuffix);
 }

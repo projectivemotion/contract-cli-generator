@@ -2,3 +2,4 @@ node_modules
 clients.yml
 docs/*
 templates/*
+npm-debug.log
