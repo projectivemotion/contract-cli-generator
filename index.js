@@ -107,7 +107,7 @@ generate=function(templatePath){
       });
 
       project.to_pay= project.total_price-project.already_paid;
-
+      project.currency_text = project.currency === '$' ? "Dollars" : "Euros";
 
       data=_.merge(data,project);
 
