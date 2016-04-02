@@ -28,6 +28,12 @@ getMoneyFromAmount=function (amount) {
     return parseFloat(amount.replace(regex,"$1"));
 };
 
+getPaidFromProject=function(project) {
+  if (!project.paid)
+    return 0;
+  return getMoneyFromAmount(project.amount);
+}
+
 getHoursWorkedFromTime=function(time) {
     var regexDays  = new RegExp(floatRegex+"day");
     var regexHours = new RegExp(floatRegex+"hour");
@@ -45,7 +51,7 @@ getHoursWorkedFromTime=function(time) {
 
 getTurnOver=function() {
     return doc.projects.reduce(function(turnover,project){
-        return turnover+getMoneyFromAmount(project.amount);
+        return turnover+getPaidFromProject(project);
     },0);
 };
 
@@ -119,7 +125,7 @@ generate=function(templatePath){
       var undefinedTags=false;
       tags.forEach(function (tag) {
           for (var i in tag.vars.undef) {
-             console.log(i);
+             console.log("undefined:", i);
              undefinedTags=true;
           }
       });
