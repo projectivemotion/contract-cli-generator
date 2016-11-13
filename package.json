@@ -1,22 +1,23 @@
 {
-  "name": "clients-cli",
-  "version": "1.0.0",
-  "description": "A command line interface to manage your clients proposals",
-  "bin": {
-    "ct": "index.js"
-  },
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Edgar Hipp",
-  "license": "MIT",
-  "dependencies": {
-    "angular-expressions": "^0.2.1",
-    "js-yaml": "^3.2.5",
-    "lodash": "^2.4.1",
-    "minimist": "^1.1.0",
-    "spawn-sync": "^1.0.2",
-    "stdio": "^0.2.7"
-  }
+    "name": "clients-cli",
+    "version": "1.0.0",
+    "description": "A command line interface to manage your clients proposals",
+    "bin": {
+        "ct": "index.js"
+    },
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Edgar Hipp",
+    "license": "MIT",
+    "dependencies": {
+        "docxtemplater": "^2.0.0",
+        "angular-expressions": "^0.2.1",
+        "js-yaml": "^3.2.5",
+        "lodash": "^2.4.1",
+        "minimist": "^1.1.0",
+        "spawn-sync": "^1.0.2",
+        "stdio": "^0.2.7"
+    }
 }
